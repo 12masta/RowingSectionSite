@@ -60,6 +60,7 @@
 
     </table>
     <br />
-    </div>
+
     @Html.PagedListPager(Model, page => Url.Action("Index",
     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
