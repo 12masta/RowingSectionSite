@@ -1,0 +1,71 @@
+﻿@model Identity1.Models.Enrollment
+
+@{
+    ViewBag.Title = "Usuwanie";
+}
+
+<h2>Usuwanie</h2>
+
+<h3>Jesteś pewny że chcesz usunąć trening?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Player.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Player.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Training.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Training.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumbersOfMeters)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumbersOfMeters)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollemntDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollemntDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <a class="btn btn-default" style="width:30%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
+            <input type="submit" style="width:30%" value="Usuń" class="btn btn-default" /> 
+        </div>
+    }
+</div>

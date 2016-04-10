@@ -1,0 +1,72 @@
+﻿@model Identity1.Models.Enrollment
+
+@{
+    ViewBag.Title = "Edycja";
+}
+
+<h2>Edycja odbytego treningu</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ID)
+
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrainingID, "Nazwa", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TrainingID", String.Empty)
+                @Html.ValidationMessageFor(model => model.TrainingID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrainingTime, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TrainingTime)
+                @Html.ValidationMessageFor(model => model.TrainingTime)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumbersOfMeters, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumbersOfMeters)
+                @Html.ValidationMessageFor(model => model.NumbersOfMeters)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Rate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Rate)
+                @Html.ValidationMessageFor(model => model.Rate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EnrollemntDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EnrollemntDate)
+                @Html.ValidationMessageFor(model => model.EnrollemntDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a class="btn btn-default" style="width:30%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
+                <input type="submit" style="width:30%" value="Zapisz" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

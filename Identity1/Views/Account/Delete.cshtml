@@ -1,0 +1,58 @@
+﻿@model Identity1.Models.EditUserViewModel
+
+    @{
+        ViewBag.Title = "Usuwanie";
+    }
+
+<div class="container">
+    <h2>Usuwanie</h2>
+
+    <h3>Jesteś pewny że chcesz to usunąć?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <b>Login</b>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt>
+                <b>Imię</b>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                <b>Nazwisko</b>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <a class="btn btn-default" style="width:30%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
+                <input type="submit" style="width:30%" value="Usuń" class="btn btn-default" />
+            </div>
+        }
+    </div>
+</div>

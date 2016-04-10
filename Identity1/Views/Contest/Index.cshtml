@@ -1,0 +1,71 @@
+﻿@model PagedList.IPagedList<Identity1.Models.Contest>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Zawody";
+}
+
+<h2>Zawody</h2>
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.IsInRole("Admin"))
+    {
+        <div class="form-group">   
+                <a class="btn btn-default" onclick="location.href = '@Url.Action("Create", "Contest")'"><span class="glyphicon glyphicon-plus"></span> </a>   
+        </div>
+    }
+}
+
+@using (Html.BeginForm("Index", "Contest", FormMethod.Get))
+{
+    <p>
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <button type="submit" class="btn-default"><span class="glyphicon glyphicon-search"></span></button>
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th style="width:10%">
+            Nazwa        
+        </th>
+        <th style="width:10%">
+            Data zawodów
+        </th>
+        <th style="width:50%">
+            Opis
+        </th>
+        <th style="width:60px"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContestDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            <a class="btn btn-info" onclick="location.href = '@Url.Action("Edit", new { id = item.ID })'"><span class="glyphicon glyphicon-edit"></span></a>
+            <a class="btn btn-primary" onclick="location.href = '@Url.Action("Details", new { id = item.ID })'"><span class="glyphicon glyphicon-eye-open"></span></a>
+            <a class="btn btn-danger" onclick="location.href = '@Url.Action("Delete", new { id = item.ID })'"><span class="glyphicon glyphicon-trash"></span></a>
+
+            @*<input type="submit" value="Szczegóły" class="btn btn-info" onclick="location.href = '@Url.Action("Details", new { id = item.ID })'" />
+            <input type="submit" value="Usuń" class="btn btn-danger" onclick="location.href = '@Url.Action("Delete", new { id = item.ID })'" />*@
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

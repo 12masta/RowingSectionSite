@@ -1,0 +1,40 @@
+﻿@model Identity1.Models.Training
+
+@{
+    ViewBag.Title = "Usuwanie";
+}
+
+<h2>Usuwanie</h2>
+
+<h3>Jesteś pewny że chcesz usunąć trening @Html.DisplayFor(model => model.Name)?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <a class="btn btn-default" style="width:30%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
+            <input type="submit" style="width:30%" value="Usuń" class="btn btn-default" /> 
+
+        </div>
+    }
+</div>

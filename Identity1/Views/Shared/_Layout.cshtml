@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - AZS PK</title>
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="Content/bootstrap.css">
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+    @*--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">*@
+
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/fusionad.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("AZS PK", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="button">Informacje<span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="menu">
+                            <li><a href="#">@Html.ActionLink("O Nas", "About", "Home")</a></li>
+                            <li><a href="#">@Html.ActionLink("Kontakt", "Contact", "Home")</a></li>
+                        </ul>
+                    </li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("User") || User.IsInRole("CanEdit"))
+                        {
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="button">Zawody<span class="caret"></span></a>
+                                <ul class="dropdown-menu" id="menu">
+                                    <li><a href="#">@Html.ActionLink("Zawody", "Index", "Contest")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Zapisy", "Index", "ContestEnrollment")</a></li>
+                                </ul>
+                            </li>
+                        }
+                    }  
+                    
+                    @if(User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("User") || User.IsInRole("CanEdit"))
+                        {
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="button">Trening<span class="caret"></span></a>
+                                <ul class="dropdown-menu" id="menu">
+                                    <li><a href="#">@Html.ActionLink("Treningi", "Index", "Training")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Zapisy", "Index", "Enrollment")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Ranking", "Index", "LeaderBoard")</a></li>
+                                </ul>
+                            </li>
+                        }
+                    }  
+
+
+
+                    @if(User.Identity.IsAuthenticated)
+                    { 
+                        if(User.IsInRole("Admin"))
+                        { 
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="button">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu" id="menu">
+                                    <li><a href="#">@Html.ActionLink("Użytkownicy", "Index", "Account")</a></li>
+                                    <li><a>@Html.ActionLink("Zawodnicy", "All", "Player")</a></li>
+                                    <li><a>@Html.ActionLink("Zawody zapisy", "All", "ContestEnrollment")</a></li>
+                                    <li><a>@Html.ActionLink("Treningi zapisy", "All", "Enrollment")</a></li>
+                                    <li><a>@Html.ActionLink("Dodanie treningu", "Create", "Training")</a></li>
+                                    <li><a>@Html.ActionLink("Dodanie zawodów", "Create", "Contest")</a></li>
+
+                                </ul>
+                            </li> 
+                        }
+                    }     
+
+                  
+                </ul>
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+        
+
+
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+
+            <footer class="container">
+                <p>&copy; @DateTime.Now.Year - AZS Politechnika Krakowska - Sekcja Wioślarska</p>
+            </footer>
+            </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

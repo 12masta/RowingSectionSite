@@ -1,0 +1,74 @@
+﻿@model PagedList.IPagedList<Identity1.Models.Enrollment>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Zapisy";
+}
+
+<h2>Odbyte treningi</h2>
+
+
+<div class="form-group">
+    <a class="btn btn-default" onclick="location.href = '@Url.Action("Create", "Enrollment")'"><span class="glyphicon glyphicon-plus"></span> </a>
+</div>
+
+@using (Html.BeginForm("All", "Enrollment", FormMethod.Get))
+{
+
+    <p>
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <button type="submit" class="btn-default"><span class="glyphicon glyphicon-search"></span></button>
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Nazwa treningu        
+        </th>
+        <th>
+            Czas treningu
+        </th>
+        <th>
+            Odległość [m]
+        </th>
+        <th>
+            Tempo
+        </th>
+        <th>
+            Data dodania
+        </th>
+        <th style="width:150px"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Training.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumbersOfMeters)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollemntDate)
+            </td>
+            <td>
+                <a class="btn btn-info" onclick="location.href = '@Url.Action("Edit", new { id = item.ID })'"><span class="glyphicon glyphicon-edit"></span></a>
+                <a class="btn btn-primary" onclick="location.href = '@Url.Action("Details", new { id = item.ID })'"><span class="glyphicon glyphicon-eye-open"></span></a>
+                <a class="btn btn-danger" onclick="location.href = '@Url.Action("Delete", new { id = item.ID })'"><span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+@Html.PagedListPager(Model, page => Url.Action("All",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
