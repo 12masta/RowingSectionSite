@@ -3,54 +3,56 @@
 @{
     ViewBag.Title = "Szczegóły";
 }
+<div class="container">
 
-<h2>Szczegóły zawodnika @Html.DisplayFor(model => model.User.FullName)</h2>
+    <h2>Szczegóły zawodnika @Html.DisplayFor(model => model.User.FullName)</h2>
 
-<div>
-	<hr />
-    <dl class="dl-horizontal">
-     
-        <dt>
-            @Html.DisplayNameFor(model => model.User.FullName)
-        </dt>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.User.FullName)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.User.FullName)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.User.Email)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.User.FullName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.Email)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.User.Email)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BirthDate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.User.Email)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.BirthDate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.JoinDate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BirthDate)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.JoinDate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.JoinDate)
+            </dt>
 
-    </dl>
-</div>
-<p>
-    <div class="form-group">
-        <div class="col-md-10">
-            <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
-            <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Edit", new { id = Model.ID })'">Edycja</a>
-        </div>
+            <dd>
+                @Html.DisplayFor(model => model.JoinDate)
+            </dd>
+
+        </dl>
     </div>
-</p>
-<br />
-<br />
+    <p>
+        <div class="form-group">
+            <div class="col-md-10">
+                <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
+                <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Edit", new { id = Model.ID })'">Edycja</a>
+            </div>
+        </div>
+    </p>
+    <br />
+    <br />
+    </div>

@@ -3,45 +3,48 @@
 @{
     ViewBag.Title = "Usuwanie";
 }
+<div class="container">
 
-<h2>Usuwanie</h2>
+    <h2>Usuwanie</h2>
 
-<h3>Jesteś pewny że chcesz to usunąć?</h3>
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Player.User.FullName)
-        </dt>
+    <h3>Jesteś pewny że chcesz to usunąć?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Player.User.FullName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Player.User.FullName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Player.User.FullName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Contest.Name)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Contest.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Contest.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Contest.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EnrollmentDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EnrollmentDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EnrollmentDate)
+            </dd>
 
-    </dl>
+        </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <a class="btn btn-default" style="width:30%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
-            <input type="submit" style="width:30%" value="Usuń" class="btn btn-default" /> 
-        </div>
-    }
-</div>
+            <div class="form-actions no-color">
+                <a class="btn btn-default" style="width:30%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
+                <input type="submit" style="width:30%" value="Usuń" class="btn btn-default" />
+            </div>
+        }
+    </div>
+    </div>

@@ -3,45 +3,47 @@
 @{
     ViewBag.Title = "Szczegóły";
 }
+<div class="container">
 
-<h2>Szczegóły</h2>
+    <h2>Szczegóły</h2>
 
-<div>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Player.User.FullName)
-        </dt>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Player.User.FullName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Player.User.FullName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Player.User.FullName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Contest.Name)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Contest.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Contest.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Contest.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EnrollmentDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EnrollmentDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EnrollmentDate)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    <div class="form-group">
-        <div class="col-md-10">
-            <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
-            <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Edit", new { id = Model.ID })'">Edycja</a>
-        </div>
+        </dl>
     </div>
-</p>
-<br />
-<br />
+    <p>
+        <div class="form-group">
+            <div class="col-md-10">
+                <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
+                <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Edit", new { id = Model.ID })'">Edycja</a>
+            </div>
+        </div>
+    </p>
+    <br />
+    <br />
+    </div>

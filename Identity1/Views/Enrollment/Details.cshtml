@@ -3,69 +3,71 @@
 @{
     ViewBag.Title = "Szczegóły";
 }
+<div class="container">
 
-<h2>Szczegóły treningu</h2>
+    <h2>Szczegóły treningu</h2>
 
-<div>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Player.ID)
-        </dt>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Player.ID)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Player.ID)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Player.ID)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Training.Name)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Training.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Training.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Training.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TrainingTime)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TrainingTime)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TrainingTime)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TrainingTime)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NumbersOfMeters)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.NumbersOfMeters)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NumbersOfMeters)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NumbersOfMeters)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Rate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Rate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Rate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Rate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EnrollemntDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.EnrollemntDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EnrollemntDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EnrollemntDate)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    <div class="form-group">
-        <div class="col-md-10">
-            <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
-            <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Edit", new { id = Model.ID })'">Edycja</a>
-        </div>
+        </dl>
     </div>
-</p>
-<br />
-<br />
+    <p>
+        <div class="form-group">
+            <div class="col-md-10">
+                <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Index")'">Anuluj </a>
+                <a class="btn btn-default" style="width:20%" onclick="location.href = '@Url.Action("Edit", new { id = Model.ID })'">Edycja</a>
+            </div>
+        </div>
+    </p>
+    <br />
+    <br />
+    </div>

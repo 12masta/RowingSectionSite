@@ -2,88 +2,90 @@
 @{
     ViewBag.Title = "Ranking";
 }
-<br />
-<h3>Na treningach przepłyneliśmy łącznie <b>@ViewBag.TotalMetres</b> metrów.</h3>
-<br />
-<h3>Na siłownii spędziliśmy łącznie <b>@ViewBag.TotalDays</b> dni, <b>@ViewBag.TotalHours</b> godzin i <b>@ViewBag.TotalMinutes</b> minut.</h3>
-<br />
+<div class="container">
 
-<div class="row">
-    <div class="col-md-4">
-       <table class="table">
-           <tr>
-               <th>
-                   Imię i Nazwisko
-               </th>
-               <th>
-                   Przepłyniety dystans
-               </th>
-           </tr>
+    <br />
+    <h3>Na treningach przepłyneliśmy łącznie <b>@ViewBag.TotalMetres</b> metrów.</h3>
+    <br />
+    <h3>Na siłownii spędziliśmy łącznie <b>@ViewBag.TotalDays</b> dni, <b>@ViewBag.TotalHours</b> godzin i <b>@ViewBag.TotalMinutes</b> minut.</h3>
+    <br />
 
-           @foreach (var s in ViewBag.LeaderBoardMeters)
-           {
-               <tr>
-                   <td>
-                       @s.FullName
-                   </td>
-                   <td>
-                       @s.Meters
-                   </td>
-               </tr>
-           }
-       </table>
-    </div>
-    <div class="col-md-4">
-        <table class="table">
-            <tr>
-                <th>
-                    Imię i Nazwisko
-                </th>
-                <th>
-                    Przepłyniety czas
-                </th>
-            </tr>
-
-            @foreach (var s in ViewBag.LeaderBoardTime)
-            {
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
                 <tr>
-                    <td>
-                        @s.FullName
-                    </td>
-                    <td>
-                        @s.Time
-                    </td>
+                    <th>
+                        Imię i Nazwisko
+                    </th>
+                    <th>
+                        Przepłyniety dystans
+                    </th>
                 </tr>
-            }
-        </table>
-    </div>
 
-    <div class="col-md-4">
-        <table class="table">
-            <tr>
-                <th>
-                    Imię i Nazwisko
-                </th>
-                <th>
-                    Średnie tempo
-                </th>
-            </tr>
-
-            @foreach (var s in ViewBag.LeaderBoardRate)
-            {
+                @foreach (var s in ViewBag.LeaderBoardMeters)
+                {
+                    <tr>
+                        <td>
+                            @s.FullName
+                        </td>
+                        <td>
+                            @s.Meters
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table class="table">
                 <tr>
-                    <td>
-                        @s.FullName
-                    </td>
-                    <td>
-                        @s.Rate
-                    </td>
+                    <th>
+                        Imię i Nazwisko
+                    </th>
+                    <th>
+                        Przepłyniety czas
+                    </th>
                 </tr>
-            }
-        </table>
+
+                @foreach (var s in ViewBag.LeaderBoardTime)
+            {
+                    <tr>
+                        <td>
+                            @s.FullName
+                        </td>
+                        <td>
+                            @s.Time
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div class="col-md-4">
+            <table class="table">
+                <tr>
+                    <th>
+                        Imię i Nazwisko
+                    </th>
+                    <th>
+                        Średnie tempo
+                    </th>
+                </tr>
+
+                @foreach (var s in ViewBag.LeaderBoardRate)
+            {
+                    <tr>
+                        <td>
+                            @s.FullName
+                        </td>
+                        <td>
+                            @s.Rate
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+
     </div>
-
-
-</div>
-    
+    </div>
 

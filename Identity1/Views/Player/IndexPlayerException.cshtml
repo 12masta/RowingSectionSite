@@ -3,46 +3,49 @@
 @{
     ViewBag.Title = "Zawodnicy";
 }
-<br /><br /><br />
+<div class="container">
 
-<a class="btn btn-danger" onmouseover="" ><span class="glyphicon glyphicon-warning-sign"></span> Aktywowałeś już swoje konto!</a>
+    <br /><br /><br />
 
-<br />
-<br />
-<table class="table">
-    <tr>
-        <th>
-            Imię i nazwisko
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BirthDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.JoinDate)
-        </th>
-        <th></th>
-    </tr>
+    <a class="btn btn-danger" onmouseover=""><span class="glyphicon glyphicon-warning-sign"></span> Aktywowałeś już swoje konto!</a>
 
-    @foreach (var item in Model)
-    {
+    <br />
+    <br />
+    <table class="table">
         <tr>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.User.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BirthDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JoinDate)
-            </td>
-
-            <td>
-                <a class="btn btn-info" onclick="location.href = '@Url.Action("Edit", new { id = item.ID })'"><span class="glyphicon glyphicon-edit"></span></a>
-                <a class="btn btn-primary" onclick="location.href = '@Url.Action("Details", new { id = item.ID })'"><span class="glyphicon glyphicon-eye-open"></span></a>
-                <a class="btn btn-danger" onclick="location.href = '@Url.Action("Delete", new { id = item.ID })'"><span class="glyphicon glyphicon-trash"></span></a>
-            </td>
+            <th>
+                Imię i nazwisko
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JoinDate)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JoinDate)
+                </td>
+
+                <td>
+                    <a class="btn btn-info" onclick="location.href = '@Url.Action("Edit", new { id = item.ID })'"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-primary" onclick="location.href = '@Url.Action("Details", new { id = item.ID })'"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-danger" onclick="location.href = '@Url.Action("Delete", new { id = item.ID })'"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
