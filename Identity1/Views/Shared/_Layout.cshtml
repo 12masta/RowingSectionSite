@@ -32,10 +32,10 @@
                 <ul class="nav navbar-nav">
 
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="button">Informacje<span class="caret"></span></a>
-                        <ul class="dropdown-menu" id="menu">
-                            <li><a href="#">@Html.ActionLink("O Nas", "About", "Home")</a></li>
-                            <li><a href="#">@Html.ActionLink("Kontakt", "Contact", "Home")</a></li>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="dropdownStandard">Informacje<span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="standardMenu">
+                            <li id="about"><a href="#">@Html.ActionLink("O Nas", "About", "Home")</a></li>
+                            <li id="contact"><a href="#">@Html.ActionLink("Kontakt", "Contact", "Home")</a></li>
                         </ul>
                     </li>
 
@@ -44,10 +44,10 @@
                         if (User.IsInRole("User") || User.IsInRole("CanEdit"))
                         {
                             <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="button">Zawody<span class="caret"></span></a>
-                                <ul class="dropdown-menu" id="menu">
-                                    <li><a href="#">@Html.ActionLink("Zawody", "Index", "Contest")</a></li>
-                                    <li><a href="#">@Html.ActionLink("Zapisy", "Index", "ContestEnrollment")</a></li>
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="dropdownContest">Zawody<span class="caret"></span></a>
+                                <ul class="dropdown-menu" id="contestMenu">
+                                    <li id="contest"><a href="#">@Html.ActionLink("Zawody", "Index", "Contest")</a></li>
+                                    <li id="enrollmentContest"><a href="#">@Html.ActionLink("Zapisy", "Index", "ContestEnrollment")</a></li>
                                 </ul>
                             </li>
                         }
@@ -58,11 +58,11 @@
                         if (User.IsInRole("User") || User.IsInRole("CanEdit"))
                         {
                             <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="button">Trening<span class="caret"></span></a>
-                                <ul class="dropdown-menu" id="menu">
-                                    <li><a href="#">@Html.ActionLink("Treningi", "Index", "Training")</a></li>
-                                    <li><a href="#">@Html.ActionLink("Zapisy", "Index", "Enrollment")</a></li>
-                                    <li><a href="#">@Html.ActionLink("Ranking", "Index", "LeaderBoard")</a></li>
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="dropdownTraining">Trening<span class="caret"></span></a>
+                                <ul class="dropdown-menu" id="trainingMenu">
+                                    <li id="trainings"><a href="#">@Html.ActionLink("Treningi", "Index", "Training")</a></li>
+                                    <li id="enrollmentTraining"><a href="#">@Html.ActionLink("Zapisy", "Index", "Enrollment")</a></li>
+                                    <li id="ranking"><a href="#">@Html.ActionLink("Ranking", "Index", "LeaderBoard")</a></li>
                                 </ul>
                             </li>
                         }
@@ -75,23 +75,19 @@
                         if(User.IsInRole("Admin"))
                         { 
                             <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="button">Admin<span class="caret"></span></a>
-                                <ul class="dropdown-menu" id="menu">
-                                    <li><a href="#">@Html.ActionLink("Użytkownicy", "Index", "Account")</a></li>
-                                    <li><a>@Html.ActionLink("Zawodnicy", "All", "Player")</a></li>
-                                    <li><a>@Html.ActionLink("Zawody zapisy", "All", "ContestEnrollment")</a></li>
-                                    <li><a>@Html.ActionLink("Treningi zapisy", "All", "Enrollment")</a></li>
-                                    <li><a>@Html.ActionLink("Dodanie treningu", "Create", "Training")</a></li>
-                                    <li><a>@Html.ActionLink("Dodanie zawodów", "Create", "Contest")</a></li>
-
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle" id="dropdownAdmin">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu" id="adminMenu">
+                                    <li id="users"><a href="#">@Html.ActionLink("Użytkownicy", "Index", "Account")</a></li>
+                                    <li id="players"><a>@Html.ActionLink("Zawodnicy", "All", "Player")</a></li>
+                                    <li id="enrollmentContestAdm"><a>@Html.ActionLink("Zawody zapisy", "All", "ContestEnrollment")</a></li>
+                                    <li id="enrollmentTrainingAdm"><a>@Html.ActionLink("Treningi zapisy", "All", "Enrollment")</a></li>
+                                    <li id="addTraining"><a>@Html.ActionLink("Dodanie treningu", "Create", "Training")</a></li>
+                                    <li id="addContest"><a>@Html.ActionLink("Dodanie zawodów", "Create", "Contest")</a></li>
                                 </ul>
                             </li> 
                         }
-                    }     
-
-                  
+                    }                       
                 </ul>
-
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
